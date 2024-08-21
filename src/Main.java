@@ -1,12 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final AuthorManager authorManager = new AuthorManager(scanner);
-    private static final BookManager bookManager = new BookManager(authorManager,scanner);
-
-
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        AuthorManager authorManager = new AuthorManager(scanner);
+        BookManager bookManager = new BookManager(authorManager, scanner);
         while (true) {
             System.out.println("---Welcome to Book Management System---");
             System.out.println("1. Manage Authors");
@@ -29,13 +27,13 @@ public class Main {
                 }
                 case 3 -> {
                     System.out.println("Exiting System. Goodbye! \n");
-                    return; // Exit the program
+                    scanner.close();
+                    return;
                 }
                 default -> System.out.println("Invalid choice.");
             }
         }
     }
-
 }
 
 

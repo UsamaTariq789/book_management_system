@@ -1,4 +1,4 @@
-class Book {
+public class Book {
     private static int nextId = 1;
     private int id;
     private String title;
@@ -10,7 +10,6 @@ class Book {
         this.title = title;
         this.authorId = authorId;
     }
-
     // Getters
 
     public int getId() {

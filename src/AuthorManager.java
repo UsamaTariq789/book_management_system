@@ -56,13 +56,21 @@ public class AuthorManager {
     }
 
     public void viewAuthors() {
-        if(authors != null) {
+        if(!authors.isEmpty()) {
             for(Author author : authors) {
                 System.out.println(author.toString());
                 System.out.println();
             }
         } else {
             System.out.println("Author not found.\n");
+        }
+    }
+
+    public void searchAuthorByName(String name) {
+        for(Author author : authors) {
+            if(author.getName().toLowerCase().contains(name)) {
+                System.out.println(author.toString());
+            }
         }
     }
 
@@ -82,7 +90,8 @@ public class AuthorManager {
             System.out.println("2. Delete Author");
             System.out.println("3. Update Author");
             System.out.println("4. View All Authors");
-            System.out.println("5. Back");
+            System.out.println("5. Search Authors by name");
+            System.out.println("6. Back");
             System.out.print("Choose an option: ");
 
             int choice = Integer.parseInt(scanner.nextLine());
@@ -109,6 +118,11 @@ public class AuthorManager {
                 }
                 case 4 -> viewAuthors();
                 case 5 -> {
+                    System.out.print("Enter Author name: ");
+                    String name = scanner.nextLine();
+                    searchAuthorByName(name);
+                }
+                case 6 -> {
                     System.out.println("Navigating back!");
                     return; // This should return to the main method
                 }

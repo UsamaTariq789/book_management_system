@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-class BookManager {
-    private static ArrayList<Book> books = new ArrayList<>();
+public class BookManager {
+    private  ArrayList<Book> books = new ArrayList<>();
     private final AuthorManager authorManager;
     private final Scanner scanner;
 
@@ -14,6 +14,7 @@ class BookManager {
 
     public void addBook(String title, int authorId) {
         Author author = authorManager.getAuthorById(authorId);
+
         if (author == null) {
             System.out.println("Invalid author ID.");
             return;
@@ -58,12 +59,28 @@ class BookManager {
     }
 
     public void viewBooks() {
-        if(books != null) {
+        if(!books.isEmpty()) {
             for(Book book : books) {
                 System.out.println(book.toString());
             }
         } else {
             System.out.println("Book not found.\n");
+        }
+    }
+
+    public void searchBookByTitle(String title) {
+        for(Book book : books) {
+            if(book.getTitle().toLowerCase().contains(title)) {
+                System.out.println(book.toString());
+            }
+        }
+    }
+
+    public void searchBooksByAuthor(String name) {
+        for(Book book : books) {
+            if(book.getTitle().toLowerCase().contains(name)) {
+                System.out.println(book.toString());
+            }
         }
     }
 
@@ -83,7 +100,9 @@ class BookManager {
             System.out.println("2. Delete Book");
             System.out.println("3. Update Book");
             System.out.println("4. View All Books");
-            System.out.println("5. Back");
+            System.out.println("5. Search books by name");
+            System.out.println("6. Search books by author");
+            System.out.println("7. Back");
             System.out.print("Choose an option: ");
 
             int choice = Integer.parseInt(scanner.nextLine());
@@ -118,6 +137,16 @@ class BookManager {
                     viewBooks();
                 }
                 case 5 -> {
+                    System.out.print("Enter book title: ");
+                    String title = scanner.nextLine();
+                    searchBookByTitle(title);
+                }
+                case 6 -> {
+                    System.out.print("Enter author name: ");
+                    String name = scanner.nextLine();
+                    searchBookByTitle(name);
+                }
+                case 7 -> {
                     System.out.println("Navigating back!");
                     return;
                 }
