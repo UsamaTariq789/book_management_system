@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class BookManager {
-    private  ArrayList<Book> books = new ArrayList<>();
+    private ArrayList<Book> books = new ArrayList<>();
     private final AuthorManager authorManager;
     private final Scanner scanner;
 
@@ -20,14 +19,14 @@ public class BookManager {
             return;
         }
         books.add(
-               new Book(title, authorId)
+                new Book(title, authorId)
         );
         System.out.println("Book Added Successfully! \n");
     }
 
     public void deleteBook(int id) {
-        for(Book book : books) {
-            if(book.getId() == id) {
+        for (Book book : books) {
+            if (book.getId() == id) {
                 books.remove(book);
                 System.out.println("Book Deleted Successfully! \n");
                 return;
@@ -47,8 +46,8 @@ public class BookManager {
             System.out.println("Invalid author ID.");
             return;
         }
-        for(Book book : books) {
-            if(book.getId() == id) {
+        for (Book book : books) {
+            if (book.getId() == id) {
                 book.setTitle(title);
                 book.setAuthorId(authorId);
                 System.out.println("Book updated successfully! \n");
@@ -59,8 +58,8 @@ public class BookManager {
     }
 
     public void viewBooks() {
-        if(!books.isEmpty()) {
-            for(Book book : books) {
+        if (!books.isEmpty()) {
+            for (Book book : books) {
                 System.out.println(book.toString());
             }
         } else {
@@ -69,16 +68,16 @@ public class BookManager {
     }
 
     public void searchBookByTitle(String title) {
-        for(Book book : books) {
-            if(book.getTitle().toLowerCase().contains(title)) {
+        for (Book book : books) {
+            if (book.getTitle().toLowerCase().contains(title)) {
                 System.out.println(book.toString());
             }
         }
     }
 
     public void searchBooksByAuthor(String name) {
-        for(Book book : books) {
-            if(book.getTitle().toLowerCase().contains(name)) {
+        for (Book book : books) {
+            if (book.getTitle().toLowerCase().contains(name)) {
                 System.out.println(book.toString());
             }
         }
@@ -94,7 +93,7 @@ public class BookManager {
     }
 
     public void manageBooks() {
-        while(true) {
+        while (true) {
             System.out.println("Manage Books:");
             System.out.println("1. Add Book");
             System.out.println("2. Delete Book");

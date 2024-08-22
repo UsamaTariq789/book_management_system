@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
+    private static final String url = "jdbc:mysql://localhost:3306/book_management_system";
+    private static final String userName = "root";
+    private static final String password = "positive";
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         AuthorManager authorManager = new AuthorManager(scanner);

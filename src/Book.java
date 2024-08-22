@@ -15,9 +15,11 @@ public class Book {
     public int getId() {
         return id;
     }
+
     public String getTitle() {
         return title;
     }
+
     public int getAuthorId() {
         return authorId;
     }
@@ -27,9 +29,11 @@ public class Book {
     public void setId(int id) {
         this.id = id;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
+
     public void setAuthorId(int authorId) {
         this.authorId = authorId;
     }

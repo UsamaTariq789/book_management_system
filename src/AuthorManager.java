@@ -18,8 +18,8 @@ public class AuthorManager {
     }
 
     public void deleteAuthor(int id, BookManager bookManager) {
-        for(Author author : authors) {
-            if(author.getId() == id) {
+        for (Author author : authors) {
+            if (author.getId() == id) {
                 while (true) {
                     System.out.println("Deleting Author will also delete its books. Choose Option.");
                     System.out.println("1.Delete");
@@ -45,8 +45,8 @@ public class AuthorManager {
     }
 
     public void updateAuthor(int id, String name) {
-        for(Author author : authors) {
-            if(author.getId() == id) {
+        for (Author author : authors) {
+            if (author.getId() == id) {
                 author.setName(name);
                 System.out.println("Author updated successfully! \n");
                 return;
@@ -56,8 +56,8 @@ public class AuthorManager {
     }
 
     public void viewAuthors() {
-        if(!authors.isEmpty()) {
-            for(Author author : authors) {
+        if (!authors.isEmpty()) {
+            for (Author author : authors) {
                 System.out.println(author.toString());
                 System.out.println();
             }
@@ -67,8 +67,8 @@ public class AuthorManager {
     }
 
     public void searchAuthorByName(String name) {
-        for(Author author : authors) {
-            if(author.getName().toLowerCase().contains(name)) {
+        for (Author author : authors) {
+            if (author.getName().toLowerCase().contains(name)) {
                 System.out.println(author.toString());
             }
         }
@@ -83,8 +83,8 @@ public class AuthorManager {
         return null;
     }
 
-    public  void manageAuthors(BookManager bookManager) {
-        while(true) {
+    public void manageAuthors(BookManager bookManager) {
+        while (true) {
             System.out.println("Manage Authors:");
             System.out.println("1. Add Author");
             System.out.println("2. Delete Author");
@@ -106,7 +106,7 @@ public class AuthorManager {
                     System.out.print("Enter Author id: ");
                     int id = scanner.nextInt();
                     scanner.nextLine();
-                    deleteAuthor(id,bookManager);
+                    deleteAuthor(id, bookManager);
                 }
                 case 3 -> {
                     System.out.print("Enter Author id: ");
@@ -114,7 +114,7 @@ public class AuthorManager {
                     scanner.nextLine();
                     System.out.print("Enter Author name: ");
                     String name = scanner.nextLine();
-                    updateAuthor(id,name);
+                    updateAuthor(id, name);
                 }
                 case 4 -> viewAuthors();
                 case 5 -> {
